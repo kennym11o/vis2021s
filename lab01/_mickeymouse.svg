@@ -45,22 +45,6 @@
 
   <path d="M256 256 V270 V242 M256 256 H270 H242" stroke="black" fill="white"></path>
   <text x="254" y="250" font-size="16" text-anchor="middle" fill="red">(256, 256)</text>
-
-  <path d="M380 220
-           A1 1 0 0 1 390 215
-           A85 88 123 1 0 340 170
-           A1 1 0 0 1 330 175
-           A4 1 1 0 0 184 175
-           A1 1 0 0 1 174 170
-           A88 85 2 1 0 124 215
-           A1 1 0 0 1 134 220
-           A150 155 11111111 1 0 380 220z"
-  stroke-width="10" stroke="#F00" fill="none" opacity="0.3"/>
-
-  <circle id="c1" cx="124" cy="215" r="5" stroke="red" fill="black">
-  </circle>
-
-  <circle id="c2" cx="134" cy="220" r="5" stroke="red" fill="blue">
-  </circle>
 </svg>
+
     
