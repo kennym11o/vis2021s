@@ -61,10 +61,5 @@
 
   <circle id="c2" cx="180" cy="126" r="7" stroke="black" fill="black">
   </circle>
-
-  <!<circle cx="0" cy="0" r="1" stroke="blue" fill="none">
-    <animateMotion dur="6s" path="M456 256 A200 140, 0, 0, 0, 56 256" repeatCount="indefinite" rotate="auto"/>
-    <animate attributeName="r" to="15" dur="6s" repeatCount="indefinite"/>
-  </circle>>
 </svg>
     
