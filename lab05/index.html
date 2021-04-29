@@ -6,13 +6,14 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5
     <c.0 -->
     <style type="text/css">
-    	div{
+    	.bar{
     		border: 1px black solid;
     		padding: 10px;
     		margin: 5px 1px 5px 1px;
     		display: inline-block;
     		width: 20px;
     		background-color: cyan;
+			vertical-align: bottom;
     	}
 
     	body {
@@ -37,11 +38,15 @@
 				.enter()
 				.append("div")
 				.filter(function(d, i){
+					console.log(i);
 					return (i != 0);
 				})
 				.attr("class", "bar")
 				.style("height", function(d){
 					return d[1]+'px';
+				})
+				.text(function(d){
+					return d[1]
 				});
 
 		
