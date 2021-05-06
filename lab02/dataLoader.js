@@ -98,24 +98,24 @@ function dataClassifier(key, callback) {
 				list.push(k)
 			}
 		}
-		
-		//這邊將所有的分層名稱加入至layer陣列中
-        layer.push(d[key])
-
-        //以單位名稱作為分曾
-        d3json.children.push({
-            name: d[key],
-            children: list.map(function(k){
-                //代表每一個長方形的大小
-				//如果直接以節點本身的數值計算長方形大小，可能會因為不同節點的數值差異過大
-				//而導致有些長方形面積很大，有些很小，會有很多長方形湖在一起
-                return {
-                    name: k,
-                    size: mapping[d[k]],
-                    value: d[k]
-                }
+        //這邊將所有的分層名稱加入至layer陣列中
+        if (d[k] != 0) {
+            layer.push(d[key])
+            //以單位名稱作為分曾
+            d3json.children.push({
+                name: d[key],
+                children: list.map(function(k){
+                    //代表每一個長方形的大小
+                    //如果直接以節點本身的數值計算長方形大小，可能會因為不同節點的數值差異過大
+                    //而導致有些長方形面積很大，有些很小，會有很多長方形湖在一起
+                        return {
+                            name: k,
+                            size: mapping[d[k]],
+                            value: d[k]
+                        }
+                })
             })
-        })
+        }
     })
 
     callback(d3json, layer)

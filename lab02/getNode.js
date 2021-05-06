@@ -86,8 +86,17 @@ function getNode(data, layer, container){
         //svg長方形起始座標為d3自動算出
         .attr('x', function(d){return d.x0})
         .attr('y', function(d){return d.y0})
-        .attr('width', function(d) {return d.x1-d.x0})
-        .attr('height', function(d) {return d.y1-d.y0})
+        .attr('width', function(d) {
+            // if (d.data.value == 0)
+            //     return 0;
+            // else
+                return d.x1-d.x0}
+            )
+        .attr('height', function(d) {
+            // if (d.data.value == 0)
+            //     return 0;
+            // else
+                return d.y1-d.y0})
         .style('stroke', 'red')
         //以layer名稱套用顏色
         .style('fill', function(d) {return color(d.parent.data.name)})
