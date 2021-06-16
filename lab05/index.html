@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Lab</title>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5
-    <c.0 -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
     <style type="text/css">
     	.bar{
     		border: 1px black solid;
@@ -24,29 +23,39 @@
     </style>
 </head>
 <body>
-
-
     <script type="text/javascript">
       // Your beautiful D3 code will go here
-	d3.text("./data.csv", function(data){
-		var parsedCSV = d3.csv.parseRows(data);
-		d3.select("body")
-			.selectAll("div")
-			.data(parsedCSV)
-			.enter()
-			.append("div")
-			.filter(function(d, i){
-				console.log(i);
-				return (i != 0);
-			})
-			.attr("class", "bar")
-			.style("height", function(d){
-				return d[1]+'px';
-			})
-			.text(function(d){
-				return d[1]
-			});
-	});
+	  var csvFile = new XMLHttpRequest();
+		csvFile.open(
+			"GET",
+			"https://raw.githubusercontent.com/kennym11o/vis2021s/master/lab05/data.csv",
+			true
+		);
+		csvFile.onreadystatechange = function () {
+			if (csvFile.readyState === 4){
+				if (csvFile.status === 200) {
+					var parsedCSV = d3.csv.parseRows(csvFile.responseText);
+					
+					d3.select("body")
+						.selectAll("div")
+						.data(parsedCSV)
+						.enter()
+						.append("div")
+						.filter(function(d, i){
+							console.log(i);
+							return (i != 0);
+						})
+						.attr("class", "bar")
+						.style("height", function(d){
+							return d[1]+'px';
+						})
+						.text(function(d){
+							return d[1]
+						});
+				}
+			}
+		}
+		csvFile.send(null)
     </script>
 </html>
   
