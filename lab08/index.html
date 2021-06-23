@@ -1,14 +1,824 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-  <head>
-    <meta charset="utf-8">
-    <title>D3 Page Template</title>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Lab 8</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap");
+
+    h1,
+    div {
+      background-color: rgba(255, 255, 0, 0.1);
+      font-family: "Noto Serif JP", serif;
+      font-size: 24pt;
+      border: solid 1px black;
+      width: 90%;
+      margin: 5px auto;
+      padding: 10px;
+    }
+
+    div {
+      font-size: 12pt;
+    }
+
+    body {
+      background-color: rgba(255, 128, 255, 0.1);
+    }
+
+    video:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+    #path1142 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1142 5s linear forwards;
+    }
+
+    @keyframes dash1142 {
+      0% {
+        stroke-dashoffset: 200;
+      }
+
+      12.5% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1146 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1146 5s linear forwards;
+    }
+
+    @keyframes dash1146 {
+
+      0%,
+      12.5% {
+        stroke-dashoffset: 200;
+      }
+
+      25% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1148 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1148 5s linear forwards;
+    }
+
+    @keyframes dash1148 {
+
+      0%,
+      25% {
+        stroke-dashoffset: 200;
+      }
+
+      37.5% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1150 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1150 5s linear forwards;
+    }
+
+    @keyframes dash1150 {
+
+      0%,
+      37.5% {
+        stroke-dashoffset: 200;
+      }
+
+      50% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1152 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1152 5s linear forwards;
+    }
+
+    @keyframes dash1152 {
+
+      0%,
+      50% {
+        stroke-dashoffset: 200;
+      }
+
+      62.5% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1156 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 200;
+      animation: dash1156 5s linear forwards;
+    }
+
+    @keyframes dash1156 {
+
+      0%,
+      62.5% {
+        stroke-dashoffset: 200;
+      }
+
+      75% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1158 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 300;
+      animation: dash1158 5s linear forwards;
+    }
+
+    @keyframes dash1158 {
+
+      0%,
+      75% {
+        stroke-dashoffset: 300;
+      }
+
+      87.5% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1160 {
+      stroke-width: 12;
+      clip-path: url("#cp1");
+      stroke-dasharray: 300;
+      animation: dash1160 5s linear forwards;
+    }
+
+    @keyframes dash1160 {
+
+      0%,
+      87.5% {
+        stroke-dashoffset: 300;
+      }
+
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* -------------------------------------------------------------------------   */
+    #path1132 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 300;
+      animation: dash1132 5s linear forwards;
+    }
+
+    @keyframes dash1132 {
+      0% {
+        stroke-dashoffset: 300;
+      }
+
+      11% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1134 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1134 5s linear forwards;
+    }
+
+    @keyframes dash1134 {
+
+      0%,
+      11% {
+        stroke-dashoffset: 200;
+      }
+
+      22% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1136 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1136 5s linear forwards;
+    }
+
+    @keyframes dash1136 {
+
+      0%,
+      22% {
+        stroke-dashoffset: 200;
+      }
+
+      33% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1138 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1138 5s linear forwards;
+    }
+
+    @keyframes dash1138 {
+
+      0%,
+      33% {
+        stroke-dashoffset: 200;
+      }
+
+      44% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1140 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1140 5s linear forwards;
+    }
+
+    @keyframes dash1140 {
+
+      0%,
+      44% {
+        stroke-dashoffset: 200;
+      }
+
+      55% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1042 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1042 5s linear forwards;
+    }
+
+    @keyframes dash1042 {
+
+      0%,
+      55% {
+        stroke-dashoffset: 200;
+      }
+
+      66% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1044 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1044 5s linear forwards;
+    }
+
+    @keyframes dash1044 {
+
+      0%,
+      66% {
+        stroke-dashoffset: 200;
+      }
+
+      77% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1046 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1046 5s linear forwards;
+    }
+
+    @keyframes dash1046 {
+
+      0%,
+      77% {
+        stroke-dashoffset: 300;
+      }
+
+      88% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1048 {
+      stroke-width: 12;
+      clip-path: url("#cp2");
+      stroke-dasharray: 200;
+      animation: dash1048 5s linear forwards;
+    }
+
+    @keyframes dash1048 {
+
+      0%,
+      88% {
+        stroke-dashoffset: 200;
+      }
+
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* -------------------------------------------------------------------------   */
+    #path1364 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 200;
+      animation: dash1364 5s linear forwards;
+    }
+
+    @keyframes dash1364 {
+      0% {
+        stroke-dashoffset: 200;
+      }
+
+      7% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1366 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1366 5s linear forwards;
+    }
+
+    @keyframes dash1366 {
+
+      0%,
+      7% {
+        stroke-dashoffset: 300;
+      }
+
+      14% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1368 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1368 5s linear forwards;
+    }
+
+    @keyframes dash1368 {
+
+      0%,
+      14% {
+        stroke-dashoffset: 300;
+      }
+
+      21% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1370 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1370 5s linear forwards;
+    }
+
+    @keyframes dash1370 {
+
+      0%,
+      21% {
+        stroke-dashoffset: 300;
+      }
+
+      28% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1372 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1372 5s linear forwards;
+    }
+
+    @keyframes dash1372 {
+
+      0%,
+      28% {
+        stroke-dashoffset: 300;
+      }
+
+      35% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1374 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1374 5s linear forwards;
+    }
+
+    @keyframes dash1374 {
+
+      0%,
+      35% {
+        stroke-dashoffset: 300;
+      }
+
+      42% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1376 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1376 5s linear forwards;
+    }
+
+    @keyframes dash1376 {
+
+      0%,
+      42% {
+        stroke-dashoffset: 300;
+      }
+
+      49% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1378 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1378 5s linear forwards;
+    }
+
+    @keyframes dash1378 {
+
+      0%,
+      49% {
+        stroke-dashoffset: 300;
+      }
+
+      56% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1380 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1380 5s linear forwards;
+    }
+
+    @keyframes dash1380 {
+
+      0%,
+      56% {
+        stroke-dashoffset: 300;
+      }
+
+      63% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1382 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1382 5s linear forwards;
+    }
+
+    @keyframes dash1382 {
+
+      0%,
+      63% {
+        stroke-dashoffset: 300;
+      }
+
+      70% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1384 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1384 5s linear forwards;
+    }
+
+    @keyframes dash1384 {
+
+      0%,
+      77% {
+        stroke-dashoffset: 300;
+      }
+
+      84% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1386 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1386 5s linear forwards;
+    }
+
+    @keyframes dash1386 {
+
+      0%,
+      84% {
+        stroke-dashoffset: 300;
+      }
+
+      91% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1388 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1388 5s linear forwards;
+    }
+
+    @keyframes dash1388 {
+
+      0%,
+      91% {
+        stroke-dashoffset: 300;
+      }
+
+      95% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #path1390 {
+      stroke-width: 12;
+      clip-path: url("#cp3");
+      stroke-dasharray: 300;
+      animation: dash1390 5s linear forwards;
+    }
+
+    @keyframes dash1390 {
+
+      0%,
+      95% {
+        stroke-dashoffset: 300;
+      }
+
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+  <!--
+    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    -->
+  <script src="js/5523-.-d3.v6.min.js" charset="utf-8"></script>
 </head>
+
 <body>
-    <script type="text/javascript">
-      // Your beautiful D3 code will go here
-    </script>
-  </body>
+  <h1>
+    lab08 &#28450;&#23383;&#26360;&#23531; (&#37467;&#31558;&#23383;)
+    (&#27611;&#31558;&#23383;) Path Animation
+  </h1>
+  <div>
+    &#38480;&#23450;&#20351;&#29992;
+    D3.js&#65292;&#21443;&#32771;&#20197;&#19979;&#24433;&#29255;&#12290;
+    <ul>
+      <li>
+        <a href="https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4">Animate path in D3</a>
+      </li>
+      <li>
+        <a href="https://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation">"Self-Drawing" SVG</a>
+      </li>
+      <li>
+        <a href="https://stackoverflow.com/questions/15275362/how-to-transition-a-path-in-d3-js">How to transition a
+          path in d3.js</a>
+      </li>
+      <li>
+        <a href="https://css-tricks.com/svg-line-animation-works/">How SVG Line Animation Works</a>
+      </li>
+      <li>
+        <a href="http://blog.roachking.net/blog/2014/10/31/osolve-team-drawing-animation/">&#20351;&#29992; SVG
+          &#23559;&#22294;&#29255;&#20570;&#25104;&#21205;&#30059;</a>
+      </li>
+      <li>
+        <a href="https://www.hesyifei.com/">&#20309;&#19968;&#38750;</a>
+      </li>
+      <li>
+        <a href="https://bl.ocks.org/veltman/403f95aee728d4a043b142c52c113f82">Centerline label placement</a>
+      </li>
+      <li>
+        <a href="https://bl.ocks.org/veltman/13a7234c4ea073bd7caaa11abb1f7b5d">Centerline label placement #2</a>
+      </li>
+      <li>
+        <a
+          href="https://medium.com/@GlennJong/svg-%E7%AD%86%E8%A8%98-%E6%89%8B%E5%AF%AB%E5%AD%97%E5%8B%95%E7%95%AB-3e42ec68bfdd">SVG
+          &#31558;&#35352;&#65306;&#25163;&#23531;&#23383;&#21205;&#30059;</a>
+      </li>
+      <li>
+        <a href="https://inkscape.org/zh-hant/">Inkscape <img src="images/images-inkscape-logo.svg" width="64" /></a>
+      </li>
+      <li>
+        <a href="https://www.oxxostudio.tw/articles/201406/svg-09-clipping-masking.html">SVG
+          &#30740;&#31350;&#20043;&#36335; (9) - Clipping and Masking</a>
+      </li>
+      <li>
+        <a href="https://petercollingridge.appspot.com/svg-optimiser">SVG optimiser</a>
+      </li>
+      <li>
+        <a href="https://petercollingridge.appspot.com/svg-transforms">svg-transforms</a>
+      </li>
+      <li><a href="https://jakearchibald.github.io/svgomg/">svgomg</a></li>
+    </ul>
+  </div>
+
+  <div>
+    &#23637;&#31034;&#21312; (&#22995;&#21517;)
+    <hr />
+    <img width="256" src="./uni9673_FZSJSK--GBK1-0.svg" />
+    <img width="256" src="./uni54C1_FZSJSK--GBK1-0.svg" />
+    <img width="256" src="./uni777F_FZSJSK--GBK1-0.svg" />
+  </div>
+
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+      height="512" viewbox="-10 0 266 256">
+      <clippath id="cp1">
+        <path fill="currentColor" d="M136 -8q9 8 8 11q-3 16 -2 30q2 -1 5 -2q3 0 6 -2q2 0 4 -2q-1 -2 6 -2q8 2 12 4q1 2 1 3t-2 1q-17 2 -32 11q0 4 -1 11v7q18 -4 33 -5q12 -3 24 19q3 8 -1 8q-5 2 -8 7q-8 15 -26 23q-14 7 -22 -1q0 1 -1 4q-1 4 0 4q10 19 45 47q7 7 16 6q27 2 48 13q3 2 3 3t-3 1
+                q-12 -2 -24 -3t-21 -2q-14 0 -20 -8q-32 -30 -44 -47q-1 70 4 96q-2 6 -7 3q-10 -18 -13 -28q-1 -3 0 -3t4 2q7 9 9 3q0 -6 -1 -26q-1 -23 -1 -50q-37 54 -70 55q-3 1 -3 0q0 -2 3 -3q36 -10 67 -60l-6 -8q-2 1 -15 6q-7 3 -4 -8q-13 -4 -9 -12q3 -2 0 -5q-12 -14 3 -25
+                q4 -2 2 2q-7 9 -5 9q2 2 2 5q-1 4 4 8q5 0 31 -10v-13q-5 2 -12 5q-14 5 -20 5q-5 0 -1 -2q12 -6 33 -14v-16q-16 11 -18 12q-5 2 -1 -2q1 -1 8 -7q8 -6 11 -9v-1q-22 8 -42 4q-4 -1 1 -2q18 0 41 -8q0 -22 -1 -27v-13q-2 -5 2 -2zM141 67v12q5 -2 10 -2q2 0 2 2q-1 3 -3 4
+                q-6 2 -9 5v12q11 -4 20 -5q3 4 -2 6q-8 2 -18 5q4 8 17 1q14 -6 25 -36q2 -9 -6 -11q-18 2 -36 7zM134 88q-3 1 -7 2q-18 6 -23 3q6 12 16 14q1 -1 15 -6v-9q-4 3 -5 2q0 -1 4 -6zM135 108q-2 2 -3 1q0 1 1 2q1 2 2 2v-5zM70 32q1 2 4 3q2 2 4 3q3 5 -1 7q-7 3 -10 9
+                q-4 10 0 19q6 12 10 22q0 3 -1 5q-2 1 -4 -1q-9 -7 -22 -13q-10 61 -5 105q2 14 15 25q3 3 0 7q-10 3 -16 -11q-2 -3 -2 -2l-10 -10q-6 -3 -2 -9q4 -4 8 -1q2 2 2 -2q-1 -32 -1 -54q1 -24 5 -51q1 -4 -2 -6q-3 -4 0 -8q5 -2 6 -1q10 7 6 9q-3 2 -4 7q1 1 5 1q7 0 9 -1
+                q2 0 2 -1q1 -1 0 -3q-7 -10 -6 -33q-19 14 -30 4q-2 -1 -2 -2t3 -1q11 3 25 -6q5 -3 6 -8q1 -6 8 -2z" />
+      </clippath>
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 30.187886,49.048208 50.756489,48.731768 67.211372,41.137206 62.464771,65.50309 72.590853,94.299135 49.807169,84.173053"
+        id="path1142" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 44.111248,74.996292 41.896168,198.40791 55.81953,219.60939" id="path1146" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 94.10878,43.035847 165.30779,30.378245 117.84178,56.009889" id="path1148" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 97.27318,72.148331 -1.26576,12.974042 8.22744,11.391842 -2.21508,5.063045 9.80964,7.27812 -2.53152,5.06304 45.25093,-14.239804"
+        id="path1150" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 104.5513,76.894932 51.89617,-15.505562 22.1508,-3.164401 15.50556,18.986403 c 0,0 -37.9728,36.390608 -39.555,35.757728 -1.5822,-0.63288 -15.18913,-4.43016 -15.18913,-4.43016"
+        id="path1152" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 106.76638,91.767614 148.53646,80.059333" id="path1156" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 137.46106,-0.31644005 139.04326,223.72311 126.06922,202.52163" id="path1158" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 66.262052,181.32015 35.441288,-18.66996 32.90976,-41.13721 52.84549,53.47837 57.90853,12.02472"
+        id="path1160" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+      height="512" viewbox="-10 0 266 256">
+      <clippath id="cp2">
+        <path fill="currentColor"
+          d="M154 43q1 2 7 5q4 2 7 3q3 3 3 6t-3 3q-2 1 -1 1q-5 0 -7 4q-6 9 -18 19q11 0 18 4q2 2 1 5q-1 2 -4 2q-3 1 -7 0q-5 -1 -10 -4q-7 -2 -14 1q-2 1 -3 1q-5 3 -7 2q8 4 4 8t-11 -1q-22 -14 -19 -24q-2 -8 -4 -15l-1 -1q0 -2 1 -4q0 -3 1 1q2 6 5 9q2 3 5 9q0 2 2 3
+q2 9 13 12q31 -5 42 -41q0 -8 -10 -6l-6 2q-30 12 -45 13q-2 0 -2 -1t2 -2q28 -7 45 -15q7 -4 16 1zM104 125q4 -3 8 0q9 7 12 9q3 5 -3 7q-5 1 -7 5q-5 8 -14 18q10 -2 14 2q2 5 -1 6q-4 2 -11 0q-9 -1 -27 3q7 7 1 9q-7 2 -17 -9q-7 -3 -4 -12q0 -2 -1 -5q-1 -1 -3 -4
+q-3 -4 -4 -9q-1 -3 2 -1q3 4 7 11q2 3 4 4q4 9 11 13q12 -4 26 -8q-2 -4 3 -9q6 -8 12 -22q0 -3 -3 -3q-32 13 -52 16q-4 1 0 -2q19 -9 38 -14q5 -1 9 -5zM169 170q5 2 4 7q-2 4 -6 1q-17 -9 -17 -18q-1 -2 -5 -7q-1 -1 -2 -3q-8 -7 -2 -22q0 -1 1 0q1 0 2 2q-3 14 10 29
+q7 10 15 11zM162 132q29 -10 36 -15q7 -4 12 1q3 5 10 10q3 2 2 4q0 2 -3 2q-5 2 -8 6q-7 12 -15 20q12 0 18 4q1 1 1 2t-1 1q-5 6 -10 2q-17 -6 -29 -1q-3 2 -4 1q-2 0 -1 -4q0 -5 5 -6q8 0 13 1q16 -16 18 -35q0 -5 -4 -4q-21 12 -39 14q-3 0 -4 -1q0 -1 3 -2z" />
+      </clippath>
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 86.307692,60.615385 14.461538,31.076923 16.30769,9.846152" id="path1132" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 92.15385,58.461538 140.76923,44.307692 148.46154,43.076923 166,53.846154 136.76923,86.153846"
+        id="path1134" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 111.23077,94.769231 29.53846,-8.923077 12,5.538461" id="path1136" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 48.769231,145.53846 14.153846,26.76923 10.769231,8.61539" id="path1138" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 57.692308,144 51.692312,-16 9.53846,8.92308 -20.61539,25.84615" id="path1140" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 68.769231,174.76923 97.38462,168 l 12.92307,0.92308" id="path1042" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 140.46154,132 5.84615,21.23077 20.61539,19.69231" id="path1044" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 161.38462,133.53846 34.76923,-12 8.92307,-2.76923 8,12.30769 -21.84615,31.07693" id="path1046" />
+      <path style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 173.07692,164.30769 208.46154,164" id="path1048" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+      height="512" viewbox="-10 0 266 256">
+      <clippath id="cp3">
+        <path fill="currentColor"
+        d="M189 39q11 0 20 16q1 4 0 5t-3 0q-8 -2 -16 -1q-3 0 -9 1h-9q-4 0 -5 -1q0 -1 4 -2q16 -4 22 -8q3 -1 3 -3q-1 -3 -4 -4q-47 -5 -95 7q-12 5 -25 4q-2 0 -2 -1t2 -2q7 -1 21 -4l12 -3q2 0 6 -1q3 0 6 -1q-3 -2 -5 -7q-1 -2 -1 -3q-2 -2 2 -5q10 -12 -6 -25q-4 -2 1 -2
+        q20 7 24 18q11 -2 22 -7q4 -2 4 -6q1 -2 3 -1q2 4 12 3q3 0 2 3q0 5 -3 4q-14 2 -30 9q-4 1 0 -2q3 -1 2 -2l-3 1q-2 0 -4 1q-4 0 -5 -1q-3 11 -3 20q27 -3 60 0zM120 205l-9 3q-3 1 -8 -1q-1 0 0 4q1 3 1 4q-1 5 -6 1q-3 -5 -6 -12q-1 -5 6 -6q2 -40 -1 -61q-1 -4 2 -1
+        q7 11 5 11q-3 23 -1 58q6 -1 15 -2l-2 -1q-1 -1 -1 -3q-1 -2 1 -1q2 3 5 4q14 -3 23 -3q1 2 0 4q-1 0 -2 1h-5q-8 0 -13 1q7 7 19 17q2 2 3 1q1 0 1 -3q-2 -45 -1 -89q-1 -9 -12 -9q-6 0 -14 4q-1 1 -2 1q-9 3 -16 2q-4 -1 1 -2q7 -1 16 -5q6 -2 15 -4q8 1 13 4q6 9 12 12
+        q3 2 0 4q-8 3 -8 17q-2 16 -1 35q0 16 4 42q0 3 -3 4q-2 0 -5 -2q-16 -16 -26 -29zM115 80q0 -3 1 -3t3 2q5 9 2 14q-37 55 -88 91q-9 5 -1 -2q70 -61 83 -102zM123 95q10 -3 16 5q16 23 42 43q5 6 19 5q20 0 42 10q2 2 3 4q-1 1 -3 0q-14 -5 -47 -8q-9 1 -17 -8
+        q-24 -20 -43 -43q-6 -7 -12 -5q-3 0 0 -3zM95 65q-3 0 -3 -1q1 -1 4 -2q18 -1 32 -10q6 -3 15 -1q2 1 2 2q0 2 -2 3q-30 13 -48 9zM160 66q3 -5 12 6q1 2 0 3t-3 0q-3 0 -13 5q-11 6 -19 7q-5 2 -1 -2q14 -7 24 -19zM106 76q5 -1 2 1q-13 7 -21 14q-5 4 -3 8q-2 6 -6 2
+        q-6 -5 -6 -14q1 -4 5 -2q0 3 6 0q6 -2 18 -7q3 -1 5 -2zM63 55q3 -2 1 1q-9 13 -6 17q4 6 2 10q-4 3 -7 0q-11 -14 10 -28zM106 180q5 0 11 -5q2 0 4 -2q4 -3 10 -3q4 2 1 6q-10 5 -19 14q-4 3 0 -1q2 -3 7 -8q1 -2 -1 -1q-1 1 -2 1q-6 1 -11 0q-2 0 0 -1zM108 153
+        q5 0 12 -5q2 -1 3 -2q4 -2 10 -2q3 2 1 5q-7 3 -19 15q-4 2 -1 -1q3 -4 7 -8q2 -2 0 -2q-9 3 -13 2q-3 -1 0 -2z" />
+      </clippath>
+      <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 108.46154,0.61538462 122.61538,15.076923 123.53846,40"
+     id="path1364" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 128.46154,17.230769 170.61538,9.8461538"
+     id="path1366" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 59.846154,55.692308 -7.076923,17.230769 2.461538,9.538461"
+     id="path1368" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 71.538462,51.076923 74.769228,-11.692308 46.76923,1.23077 11.69231,14.461538 -32,3.692308"
+     id="path1370" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 95.23077,64.307692 142,52.923077"
+     id="path1372" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 106.92308,76.615385 76.769231,95.076923"
+     id="path1374" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 138.61538,85.230769 167.23077,70.769231"
+     id="path1376" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 117.07692,83.384615 90,130.15385 31.846154,183.07692"
+     id="path1378" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 126,95.692308 13.84615,8.923072 45.53847,44.61539 55.38461,9.84615"
+     id="path1380" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 99.53846,141.53846 0.61539,72.30769"
+     id="path1382" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 103.53846,128.61538 30.15385,-9.23076 12.61538,4.30769 4,105.53846 -34.46154,-29.84615"
+     id="path1384" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 107.53846,154.76923 24,-8.92308 L 121.69231,156"
+     id="path1386" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 108.15385,178.46154 129.07692,172.61538 118,184.30769"
+     id="path1388" />
+  <path
+     style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 105.07692,206.15385 34.15385,-4.61539"
+     id="path1390" />
+    </svg>
+  </div>
+</body>
+
 </html>
-  
