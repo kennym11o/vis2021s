@@ -140,7 +140,7 @@ def tree_state(datasetX, datasety, clf, features, dataIndex, node_index=0, nodes
         
     return nodes
 
-datacsv = pd.read_csv(str(pathlib.Path.cwd())+'\\diffData_500.csv')
+datacsv = pd.read_csv(str(pathlib.Path.cwd())+'\test2.csv')
 datacsv = datacsv.fillna(0)
 labelencoder = LabelEncoder()
 
